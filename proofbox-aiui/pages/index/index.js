@@ -81,6 +81,7 @@ export default {
       const offset = event.code === "ArrowDown" ? 1 : -1;
       const nextIndex = (currentIndex + offset + CATEGORY_OPTIONS.length) % CATEGORY_OPTIONS.length;
       this.selectCategoryById(CATEGORY_OPTIONS[nextIndex].id, true);
+      this.startFlow();
     }
   },
 
