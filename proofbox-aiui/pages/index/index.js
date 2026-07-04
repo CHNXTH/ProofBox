@@ -31,6 +31,7 @@ export default {
     const dataset = (event.currentTarget && event.currentTarget.dataset) || (event.target && event.target.dataset) || {};
     const id = dataset.id;
     this.selectCategoryById(id, true);
+    this.startFlow();
   },
 
   selectCategoryById(id, announce) {
