@@ -8,5 +8,8 @@
     "check": "node scripts/check-project.mjs",
     "md5": "node scripts/md5.mjs",
     "pack:hint": "printf 'Run: aiui-aix pack --optimize -o proofbox.aix proofbox-aiui\\n'"
+  },
+  "devDependencies": {
+    "@yodaos-pkg/aix": "^0.6.0"
   }
 }
