@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/flow/index",
+    "pages/summary/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "开箱有证 ProofBox",
+    "viewport": {
+      "width": "device-width"
+    },
+    "backgroundColor": "#050806",
+    "textStyle": "light"
+  }
+}

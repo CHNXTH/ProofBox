@@ -1,0 +1,12 @@
+{
+  "name": "proofbox-aiui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ProofBox AIUI agent for Rokid Glasses unboxing evidence capture.",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-project.mjs",
+    "md5": "node scripts/md5.mjs",
+    "pack:hint": "printf 'Run: aiui-aix pack --optimize -o proofbox.aix proofbox-aiui\\n'"
+  }
+}

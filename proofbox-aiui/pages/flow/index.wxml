@@ -1,0 +1,78 @@
+<view class="pb-screen flow">
+  <view class="pb-shell flow-shell">
+    <view class="hud-head">
+      <text class="pb-kicker">STEP {{progressText}}</text>
+      <text class="score">{{completeness}}%</text>
+    </view>
+
+    <view class="progress-track">
+      <view class="progress-fill" style="width: {{completeness}}%;"></view>
+    </view>
+
+    <view class="main-task">
+      <text class="step-title">{{step.shortTitle}}</text>
+      <text class="instruction">{{step.instruction}}</text>
+      <text class="hint">{{step.hint}}</text>
+    </view>
+
+    <view class="targets">
+      <text
+        class="pb-chip"
+        ink:for="{{step.targets}}"
+        ink:key="*this"
+      >{{item}}</text>
+    </view>
+
+    <view class="status-card {{step.abnormal ? 'abnormal' : ''}}">
+      <text class="status-main">{{statusText}}</text>
+      <text class="status-sub">已记录 {{step.evidenceCount || 0}} 条证据 · {{cameraReady ? '相机就绪' : '模拟/等待相机'}}</text>
+    </view>
+
+    <view class="code-panel" ink:if="{{step.type === 'code'}}">
+      <input
+        class="code-input"
+        value="{{manualCode}}"
+        placeholder="可输入或语音读出 SN / IMEI"
+        bindinput="onManualCodeInput"
+      />
+      <button class="pb-action secondary" bindtap="recordCode">记录编码</button>
+    </view>
+
+    <view class="abnormal-panel">
+      <text class="panel-title">异常类型</text>
+      <view class="abnormal-grid">
+        <button
+          class="abnormal-item {{selectedAbnormal === item.id ? 'active' : ''}}"
+          ink:for="{{abnormalOptions}}"
+          ink:key="id"
+          data-id="{{item.id}}"
+          bindtap="selectAbnormal"
+        >{{item.name}}</button>
+      </view>
+      <textarea
+        class="abnormal-note"
+        value="{{abnormalNote}}"
+        placeholder="可选：例如屏幕右上角疑似划痕"
+        bindinput="onAbnormalNoteInput"
+      ></textarea>
+    </view>
+
+    <view class="supplement" ink:if="{{supplementMode}}">
+      <text class="pb-warn">异常补拍：整体 + 近景 + 参照物</text>
+      <button class="pb-action secondary" bindtap="captureSupplement">补拍一张</button>
+    </view>
+
+    <view class="flow-actions">
+      <button class="pb-action" bindtap="captureCurrent">拍照</button>
+      <button class="pb-action secondary" bindtap="retakeCurrent">重拍</button>
+      <button class="pb-action secondary" bindtap="markAbnormal">标记异常</button>
+      <button class="pb-action" bindtap="nextStep">下一步</button>
+    </view>
+
+    <view class="bottom-row">
+      <button class="text-button" bindtap="previousStep">上一步</button>
+      <text class="command-hint">{{commandHint}}</text>
+      <button class="text-button" bindtap="finishFlow">完成</button>
+    </view>
+  </view>
+</view>

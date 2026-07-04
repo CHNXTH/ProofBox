@@ -1,0 +1,53 @@
+<view class="pb-screen summary">
+  <view class="pb-shell">
+    <view class="summary-head">
+      <view>
+        <text class="pb-kicker">ProofBox Summary</text>
+        <text class="pb-title">开箱完成</text>
+      </view>
+      <view class="ring">
+        <text class="ring-number">{{completeness}}</text>
+        <text class="ring-label">完整度</text>
+      </view>
+    </view>
+
+    <view class="metrics">
+      <view class="metric">
+        <text class="metric-value">{{evidenceCount}}</text>
+        <text class="metric-label">证据</text>
+      </view>
+      <view class="metric">
+        <text class="metric-value">{{abnormalCount}}</text>
+        <text class="metric-label">异常</text>
+      </view>
+      <view class="metric">
+        <text class="metric-value">{{snCount}}</text>
+        <text class="metric-label">编码</text>
+      </view>
+    </view>
+
+    <view class="missing">
+      <text class="missing-label">缺失必拍</text>
+      <text class="missing-value">{{missingText}}</text>
+    </view>
+
+    <scroll-view class="result-scroll" scroll-y="true">
+      <view class="result-block">
+        <text class="block-title">开箱总结</text>
+        <text class="block-text">{{summary}}</text>
+      </view>
+
+      <view class="result-block">
+        <text class="block-title">售后说明</text>
+        <text class="block-text">{{afterSalesMessage}}</text>
+      </view>
+    </scroll-view>
+
+    <view class="summary-actions">
+      <button class="pb-action" bindtap="copyAfterSales">复制售后</button>
+      <button class="pb-action secondary" bindtap="copySummary">复制总结</button>
+      <button class="pb-action secondary" bindtap="backToFlow">返回流程</button>
+      <button class="pb-action secondary" bindtap="restart">新开箱</button>
+    </view>
+  </view>
+</view>
