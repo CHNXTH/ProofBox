@@ -6,8 +6,11 @@
   "type": "module",
   "scripts": {
     "check": "node scripts/check-project.mjs",
+    "aix": "node scripts/aix.mjs",
+    "pack:aix": "node scripts/aix.mjs pack . -o ../proofbox.aix --optimize",
+    "list:aix": "node scripts/aix.mjs list ../proofbox.aix",
     "md5": "node scripts/md5.mjs",
-    "pack:hint": "printf 'Run: aiui-aix pack --optimize -o proofbox.aix proofbox-aiui\\n'"
+    "pack:hint": "printf 'Official: aix pack proofbox-aiui -o proofbox.aix --optimize\\nLocal fallback: npm run pack:aix\\n'"
   },
   "devDependencies": {
     "@yodaos-pkg/aix": "^0.6.0"
