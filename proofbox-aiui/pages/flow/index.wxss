@@ -11,14 +11,14 @@
 
 .score {
   color: #40ff5e;
-  font-size: 30rpx;
+  font-size: 18rpx;
   font-weight: 800;
 }
 
 .progress-track {
   width: 100%;
-  height: 8rpx;
-  margin-top: 12rpx;
+  height: 4rpx;
+  margin-top: 4rpx;
   border-radius: 999rpx;
   background: rgba(223, 255, 232, 0.12);
   overflow: hidden;
@@ -31,48 +31,48 @@
 }
 
 .main-task {
-  margin-top: 28rpx;
-  padding: 22rpx;
+  margin-top: 6rpx;
+  padding: 8rpx;
   border: 2rpx solid rgba(64, 255, 94, 0.42);
-  border-radius: 16rpx;
+  border-radius: 8rpx;
   background: rgba(64, 255, 94, 0.09);
 }
 
 .step-title {
   display: block;
   color: rgba(223, 255, 232, 0.72);
-  font-size: 22rpx;
+  font-size: 13rpx;
 }
 
 .instruction {
   display: block;
-  margin-top: 8rpx;
+  margin-top: 3rpx;
   color: #ecfff1;
-  font-size: 34rpx;
+  font-size: 21rpx;
   font-weight: 800;
   line-height: 1.18;
 }
 
 .hint {
   display: block;
-  margin-top: 10rpx;
+  margin-top: 3rpx;
   color: rgba(223, 255, 232, 0.64);
-  font-size: 20rpx;
-  line-height: 1.35;
+  font-size: 13rpx;
+  line-height: 1.15;
 }
 
 .targets {
   display: flex;
   flex-wrap: wrap;
-  gap: 10rpx;
-  margin-top: 16rpx;
+  gap: 6rpx;
+  margin-top: 5rpx;
 }
 
 .status-card {
-  margin-top: 16rpx;
-  padding: 16rpx;
+  margin-top: 5rpx;
+  padding: 6rpx;
   border: 1rpx solid rgba(223, 255, 232, 0.16);
-  border-radius: 14rpx;
+  border-radius: 8rpx;
   background: rgba(223, 255, 232, 0.06);
 }
 
@@ -84,36 +84,36 @@
 .status-main {
   display: block;
   color: #40ff5e;
-  font-size: 24rpx;
+  font-size: 14rpx;
   font-weight: 700;
 }
 
 .status-sub {
   display: block;
-  margin-top: 6rpx;
+  margin-top: 2rpx;
   color: rgba(223, 255, 232, 0.52);
-  font-size: 18rpx;
+  font-size: 11rpx;
 }
 
 .code-panel {
   display: grid;
-  grid-template-columns: 1fr 150rpx;
-  gap: 12rpx;
-  margin-top: 16rpx;
+  grid-template-columns: 1fr 88rpx;
+  gap: 6rpx;
+  margin-top: 5rpx;
 }
 
 .code-input {
-  height: 72rpx;
-  padding: 0 16rpx;
+  height: 30rpx;
+  padding: 0 8rpx;
   border: 1rpx solid rgba(64, 255, 94, 0.34);
-  border-radius: 12rpx;
+  border-radius: 8rpx;
   color: #ecfff1;
   background: rgba(0, 0, 0, 0.22);
-  font-size: 20rpx;
+  font-size: 13rpx;
 }
 
 .abnormal-panel {
-  margin-top: 16rpx;
+  display: none;
 }
 
 .panel-title {
@@ -158,40 +158,40 @@
 
 .supplement {
   display: grid;
-  grid-template-columns: 1fr 150rpx;
-  gap: 12rpx;
+  grid-template-columns: 1fr 88rpx;
+  gap: 6rpx;
   align-items: center;
-  margin-top: 12rpx;
-  padding: 12rpx;
+  margin-top: 5rpx;
+  padding: 6rpx;
   border: 1rpx solid rgba(255, 220, 106, 0.36);
-  border-radius: 12rpx;
+  border-radius: 8rpx;
   background: rgba(255, 220, 106, 0.08);
-  font-size: 18rpx;
+  font-size: 12rpx;
 }
 
 .flow-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12rpx;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 6rpx;
   margin-top: auto;
-  padding-top: 18rpx;
+  padding-top: 5rpx;
 }
 
 .bottom-row {
   display: grid;
-  grid-template-columns: 90rpx 1fr 90rpx;
-  gap: 12rpx;
+  grid-template-columns: 54rpx 1fr 54rpx;
+  gap: 6rpx;
   align-items: center;
-  margin-top: 14rpx;
+  margin-top: 4rpx;
 }
 
 .text-button {
   color: rgba(223, 255, 232, 0.72);
-  font-size: 18rpx;
+  font-size: 12rpx;
 }
 
 .command-hint {
   color: rgba(223, 255, 232, 0.48);
-  font-size: 16rpx;
+  font-size: 10rpx;
   text-align: center;
 }
