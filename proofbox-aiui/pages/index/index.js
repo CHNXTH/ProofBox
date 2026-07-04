@@ -25,7 +25,8 @@ export default {
   },
 
   selectCategory(event) {
-    const id = event.currentTarget.dataset.id;
+    const dataset = (event.currentTarget && event.currentTarget.dataset) || (event.target && event.target.dataset) || {};
+    const id = dataset.id;
     this.selectCategoryById(id, true);
   },
 
@@ -45,9 +46,16 @@ export default {
     updateUserMemory({ preferredCategory: this.data.selectedId });
     showToast("流程已开始");
     speak(`开始${session.categoryName}开箱取证。请先遮挡隐私后拍面单。`);
-    wx.navigateTo({
-      url: `/pages/flow/index?category=${session.categoryId}`
-    });
+    if (typeof wx !== "undefined" && wx && typeof wx.navigateTo === "function") {
+      wx.navigateTo({
+        url: `/pages/flow/index?category=${session.categoryId}`,
+        fail: () => {
+          showToast("请在页面列表打开流程页");
+        }
+      });
+      return;
+    }
+    showToast("已创建流程，请打开 flow 页面");
   },
 
   startQuickPhone() {

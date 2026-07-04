@@ -9,9 +9,12 @@
     <text class="pb-subtitle">选择商品类型，眼镜会按步骤提示该拍的证据。</text>
 
     <view class="selected-panel">
-      <text class="selected-label">当前类型</text>
-      <text class="selected-name">{{selectedName}}</text>
-      <text class="selected-subtitle">{{selectedSubtitle}}</text>
+      <view class="selected-copy">
+        <text class="selected-label">当前类型</text>
+        <text class="selected-name">{{selectedName}}</text>
+        <text class="selected-subtitle">{{selectedSubtitle}}</text>
+      </view>
+      <button class="start-inline" bindtap="startFlow">开始</button>
     </view>
 
     <view class="category-grid">
@@ -27,16 +30,16 @@
       </button>
     </view>
 
+    <view class="actions">
+      <button class="pb-action" bindtap="startFlow">开始取证</button>
+      <button class="pb-action secondary" bindtap="startQuickPhone">手机快开</button>
+    </view>
+
     <view class="command-row">
       <text class="pb-chip">拍照</text>
       <text class="pb-chip">重拍</text>
       <text class="pb-chip">标记异常</text>
       <text class="pb-chip">生成总结</text>
-    </view>
-
-    <view class="actions">
-      <button class="pb-action" bindtap="startFlow">开始取证</button>
-      <button class="pb-action secondary" bindtap="startQuickPhone">手机快开</button>
     </view>
 
     <text class="voice-hint">{{wakeHint}}</text>
