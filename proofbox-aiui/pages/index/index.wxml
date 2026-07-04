@@ -18,15 +18,21 @@
     </view>
 
     <view class="category-grid">
-      <button
-        class="category-item {{selectedId === item.id ? 'active' : ''}}"
-        ink:for="{{categories}}"
-        ink:key="id"
-        data-id="{{item.id}}"
-        bindtap="selectCategory"
-      >
-        <text class="category-name">{{item.name}}</text>
-        <text class="category-subtitle">{{item.subtitle}}</text>
+      <button class="category-item {{phoneClass}}" data-id="phone" bindtap="selectCategory">
+        <text class="category-name">手机</text>
+        <text class="category-subtitle">IMEI/SN、激活状态、配件</text>
+      </button>
+      <button class="category-item {{computerClass}}" data-id="computer" bindtap="selectCategory">
+        <text class="category-name">电脑</text>
+        <text class="category-subtitle">机身 SN、开机、接口外观</text>
+      </button>
+      <button class="category-item {{collectibleClass}}" data-id="collectible" bindtap="selectCategory">
+        <text class="category-name">潮玩</text>
+        <text class="category-subtitle">盒损、内托、特典、缺件</text>
+      </button>
+      <button class="category-item {{bulkyClass}}" data-id="bulky" bindtap="selectCategory">
+        <text class="category-name">大件</text>
+        <text class="category-subtitle">外箱、缓冲、破损、配件</text>
       </button>
     </view>
 

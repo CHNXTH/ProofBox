@@ -4,10 +4,13 @@ import { showToast, speak, normalizeVoiceCommand } from "../../utils/device.js";
 
 export default {
   data: {
-    categories: CATEGORY_OPTIONS,
     selectedId: "phone",
     selectedName: "手机",
     selectedSubtitle: "IMEI/SN、激活状态、配件",
+    phoneClass: "active",
+    computerClass: "",
+    collectibleClass: "",
+    bulkyClass: "",
     memory: {},
     wakeHint: "说“我要拆一台手机”或轻点确认",
     status: "ready"
@@ -35,7 +38,11 @@ export default {
     this.setData({
       selectedId: option.id,
       selectedName: option.name,
-      selectedSubtitle: option.subtitle
+      selectedSubtitle: option.subtitle,
+      phoneClass: option.id === "phone" ? "active" : "",
+      computerClass: option.id === "computer" ? "active" : "",
+      collectibleClass: option.id === "collectible" ? "active" : "",
+      bulkyClass: option.id === "bulky" ? "active" : ""
     });
     if (announce) speak(`已选择${option.name}`);
   },

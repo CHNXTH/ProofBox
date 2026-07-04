@@ -35,15 +35,23 @@ export default {
     step: null,
     progressText: "0/0",
     completeness: 0,
-    abnormalOptions: ABNORMAL_OPTIONS,
     selectedAbnormal: "package_damage",
+    packageDamageClass: "active",
+    sealIssueClass: "",
+    scratchClass: "",
+    missingAccessoryClass: "",
+    snMismatchClass: "",
+    otherAbnormalClass: "",
     abnormalNote: "",
     manualCode: "",
     listening: false,
     statusText: "准备中",
     commandHint: "语音：拍照 / 重拍 / 标记异常 / 下一步",
     supplementMode: false,
-    cameraReady: false
+    cameraReady: false,
+    cameraStatusText: "模拟/等待相机",
+    stepStatusClass: "",
+    isCodeStep: false
   },
 
   onLoad(query = {}) {
@@ -58,7 +66,11 @@ export default {
 
   onReady() {
     this.cameraContext = createCameraContextSafe();
-    this.setData({ cameraReady: !!this.cameraContext });
+    const cameraReady = !!this.cameraContext;
+    this.setData({
+      cameraReady,
+      cameraStatusText: cameraReady ? "相机就绪" : "模拟/等待相机"
+    });
   },
 
   onShow() {
@@ -74,7 +86,9 @@ export default {
       progressText: `${Math.min(session.currentIndex + 1, session.steps.length)}/${session.steps.length}`,
       completeness: evidenceCompleteness(session),
       statusText: statusText || this.data.statusText,
-      supplementMode: !!(step && step.abnormal)
+      supplementMode: !!(step && step.abnormal),
+      stepStatusClass: step && step.abnormal ? "abnormal" : "",
+      isCodeStep: !!(step && step.type === "code")
     });
     saveActiveSession(session);
   },
@@ -146,7 +160,17 @@ export default {
   },
 
   selectAbnormal(event) {
-    this.setData({ selectedAbnormal: event.currentTarget.dataset.id });
+    const dataset = (event.currentTarget && event.currentTarget.dataset) || (event.target && event.target.dataset) || {};
+    const selectedAbnormal = dataset.id || "package_damage";
+    this.setData({
+      selectedAbnormal,
+      packageDamageClass: selectedAbnormal === "package_damage" ? "active" : "",
+      sealIssueClass: selectedAbnormal === "seal_issue" ? "active" : "",
+      scratchClass: selectedAbnormal === "scratch" ? "active" : "",
+      missingAccessoryClass: selectedAbnormal === "missing_accessory" ? "active" : "",
+      snMismatchClass: selectedAbnormal === "sn_mismatch" ? "active" : "",
+      otherAbnormalClass: selectedAbnormal === "other" ? "active" : ""
+    });
   },
 
   onAbnormalNoteInput(event) {

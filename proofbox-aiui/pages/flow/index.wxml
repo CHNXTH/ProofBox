@@ -23,12 +23,12 @@
       >{{item}}</text>
     </view>
 
-    <view class="status-card {{step.abnormal ? 'abnormal' : ''}}">
+    <view class="status-card {{stepStatusClass}}">
       <text class="status-main">{{statusText}}</text>
-      <text class="status-sub">已记录 {{step.evidenceCount || 0}} 条证据 · {{cameraReady ? '相机就绪' : '模拟/等待相机'}}</text>
+      <text class="status-sub">已记录 {{step.evidenceCount}} 条证据 · {{cameraStatusText}}</text>
     </view>
 
-    <view class="code-panel" ink:if="{{step.type === 'code'}}">
+    <view class="code-panel" ink:if="{{isCodeStep}}">
       <input
         class="code-input"
         value="{{manualCode}}"
@@ -41,13 +41,12 @@
     <view class="abnormal-panel">
       <text class="panel-title">异常类型</text>
       <view class="abnormal-grid">
-        <button
-          class="abnormal-item {{selectedAbnormal === item.id ? 'active' : ''}}"
-          ink:for="{{abnormalOptions}}"
-          ink:key="id"
-          data-id="{{item.id}}"
-          bindtap="selectAbnormal"
-        >{{item.name}}</button>
+        <button class="abnormal-item {{packageDamageClass}}" data-id="package_damage" bindtap="selectAbnormal">外箱破损</button>
+        <button class="abnormal-item {{sealIssueClass}}" data-id="seal_issue" bindtap="selectAbnormal">封条异常</button>
+        <button class="abnormal-item {{scratchClass}}" data-id="scratch" bindtap="selectAbnormal">划痕磕碰</button>
+        <button class="abnormal-item {{missingAccessoryClass}}" data-id="missing_accessory" bindtap="selectAbnormal">配件缺失</button>
+        <button class="abnormal-item {{snMismatchClass}}" data-id="sn_mismatch" bindtap="selectAbnormal">编码不一致</button>
+        <button class="abnormal-item {{otherAbnormalClass}}" data-id="other" bindtap="selectAbnormal">其他异常</button>
       </view>
       <textarea
         class="abnormal-note"
